@@ -55,7 +55,6 @@ export class TodosService {
     }
 
     deleteTodoById(id: number) {
-        const todo = new Todo()
 
         const foundTodo = this.todos.find(todo => todo.id == id);
         if (!foundTodo) {
