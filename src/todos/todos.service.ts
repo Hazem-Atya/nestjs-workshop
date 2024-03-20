@@ -27,13 +27,13 @@ export class TodosService {
         }
     ];
 
-    getAllTodos() {
+    findAll() {
         // throw new ForbiddenException("Access Forbidden!");
         // throw new CustomException("This is is a custom exception");
         return this.todos;
     }
 
-    addTodo(todo: CreateTodoDto) {
+    create(todo: CreateTodoDto) {
 
         let newTodo = new Todo();
         newTodo.description = todo.description;
@@ -46,7 +46,7 @@ export class TodosService {
         return todo;
     }
 
-    getTodoById(id: number) {
+    findById(id: number) {
         const foundTodo = this.todos.find(todo => todo.id == id);
         if (!foundTodo) {
             throw new NotFoundException(`The todo with ID ${id} was not found`);
@@ -54,7 +54,7 @@ export class TodosService {
         return foundTodo;
     }
 
-    deleteTodoById(id: number) {
+    deleteById(id: number) {
 
         const foundTodo = this.todos.find(todo => todo.id == id);
         if (!foundTodo) {
